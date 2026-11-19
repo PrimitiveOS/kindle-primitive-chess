@@ -149,14 +149,27 @@ impl Game {
             GameStatus::Ongoing => "*",
         };
         let mut body = String::new();
-        for (i, (board, mv)) in self.history.iter().enumerate() {
-            if i % 2 == 0 {
-                body.push_str(&format!("{}. ", i / 2 + 1));
+        let mut columns = 0;
+        let mut push = |token: &str| {
+            if columns != 0 && columns + 1 + token.len() >= 80 {
+                body.push('\n');
+                columns = 0;
             }
-            body.push_str(&display_san_move(board, *mv).to_string());
-            body.push(' ');
+            if columns != 0 {
+                body.push(' ');
+                columns += 1;
+            }
+            body.push_str(token);
+            columns += token.len();
+        };
+        for (index, (board, mv)) in self.history.iter().enumerate() {
+            if index % 2 == 0 {
+                push(&format!("{}.", index / 2 + 1));
+            }
+            push(&display_san_move(board, *mv).to_string());
         }
-        format!("[Event \"Primitive Chess\"]\n[Site \"Kindle\"]\n[Date \"????.??.??\"]\n[Round \"1\"]\n[White \"Player\"]\n[Black \"Kindle\"]\n[Result \"{outcome}\"]\n\n{body}{outcome}\n")
+        push(outcome);
+        format!("[Event \"Primitive Chess\"]\n[Site \"Kindle\"]\n[Date \"????.??.??\"]\n[Round \"1\"]\n[White \"Player\"]\n[Black \"Kindle\"]\n[Result \"{outcome}\"]\n\n{body}\n\n")
     }
 }
 
@@ -300,5 +313,19 @@ mod tests {
     fn detects_threefold_repetition() {
         let game = Game::restore("Easy\ng1f3\ng8f6\nf3g1\nf6g8\ng1f3\ng8f6\nf3g1\nf6g8\n");
         assert_eq!(game.status(), GameStatus::Drawn);
+    }
+
+    #[test]
+    fn export_wraps_the_game_and_terminates_the_movetext() {
+        let game = Game::restore(concat!(
+            "Medium\ne2e4\ne7e5\ng1f3\nb8c6\nf1b5\na7a6\nb5a4\ng8f6\n",
+            "e1g1\nf8e7\nf1e1\nb7b5\na4b3\nd7d6\nc2c3\ne8g8\nh2h3\nc6a5\n",
+        ));
+        let pgn = game.pgn();
+        let (_, moves) = pgn.split_once("\n\n").unwrap();
+        assert!(moves.lines().filter(|line| !line.is_empty()).count() > 1);
+        assert!(moves.lines().all(|line| line.len() < 80));
+        assert!(moves.split_whitespace().collect::<Vec<_>>().join(" ").contains("9. h3 Na5"));
+        assert!(moves.ends_with("*\n\n"));
     }
 }

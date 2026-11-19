@@ -95,6 +95,10 @@ impl View {
     }
 
     fn draw_board(&self, canvas: &mut Canvas) {
+        let accepts_taps = !self.confirms_reset
+            && self.promotions.is_empty()
+            && self.game.status() == GameStatus::Ongoing
+            && self.game.board.side_to_move() == Color::White;
         let moves = self
             .selected
             .map(|selected| self.game.allowed(selected))
@@ -108,7 +112,17 @@ impl View {
                     CELL,
                 );
                 let at = square(column, row);
-                let background = if (row + column) % 2 == 0 { 255 } else { 212 };
+                let color = self.game.board.color_on(at);
+                let pressed = accepts_taps
+                    && (self.selected.is_some() || color == Some(Color::White))
+                    && canvas.control_pressed(cell, false);
+                let background = if pressed {
+                    150
+                } else if (row + column) % 2 == 0 {
+                    255
+                } else {
+                    212
+                };
                 canvas.fill(cell, background);
                 if self.selected == Some(at) {
                     canvas.panel(cell.inset(4), 10, 6, background);
@@ -123,7 +137,7 @@ impl View {
                     .iter()
                     .any(|&mv| destination(&self.game.board, mv) == at);
                 if let Some(piece) = self.game.board.piece_on(at) {
-                    let black = self.game.board.color_on(at) == Some(Color::Black);
+                    let black = color == Some(Color::Black);
                     let disk = Rect::new(cell.x + 24, cell.y + 22, 96, 96);
                     canvas.panel(
                         disk,
