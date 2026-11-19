@@ -1,0 +1,10 @@
+[package]
+name = "chess-kindle"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+chess-core.workspace = true
+chess-render.workspace = true
+primitive-app.workspace = true
