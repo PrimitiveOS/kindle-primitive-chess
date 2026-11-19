@@ -169,7 +169,7 @@ impl Game {
             push(&display_san_move(board, *mv).to_string());
         }
         push(outcome);
-        format!("[Event \"Primitive Chess\"]\n[Site \"Kindle\"]\n[Date \"????.??.??\"]\n[Round \"1\"]\n[White \"Player\"]\n[Black \"Kindle\"]\n[Result \"{outcome}\"]\n\n{body}\n\n")
+        format!("[Event \"Chess\"]\n[Site \"Kindle\"]\n[Date \"????.??.??\"]\n[Round \"1\"]\n[White \"Player\"]\n[Black \"Kindle\"]\n[Result \"{outcome}\"]\n\n{body}\n\n")
     }
 }
 

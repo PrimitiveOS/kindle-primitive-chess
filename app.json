@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "primitive-chess",
   "dir": "chess",
-  "name": "Primitive Chess",
+  "name": "Chess",
   "subtitle": "Play chess against your Kindle",
   "developer": { "name": "Primitive AI" },
   "categories": ["games"],

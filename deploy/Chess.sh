@@ -1,5 +1,5 @@
 #!/bin/sh
-# Name: Primitive Chess
+# Name: Chess
 # Author: Primitive AI
 # DontUseFBInk
 # PrimitiveUSBLease

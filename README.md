@@ -1,6 +1,6 @@
 <div align="center">
 
-# Primitive Chess
+# Chess
 
 **Play standard chess against your Kindle.**
 
@@ -35,7 +35,7 @@ evaluates material and control of the center.
 ## Quick start
 
 For a local USB test, extract the ARMHF test package and copy the `chess` and `documents` folders to the Kindle's
-user storage. Eject the Kindle and open Primitive Chess from the Primitive Launcher grid. The app uses fonts
+user storage. Eject the Kindle and open Chess from the Primitive Launcher grid. The app uses fonts
 installed with Primitive Launcher. [Install guide](INSTALL.md)
 
 ## Status

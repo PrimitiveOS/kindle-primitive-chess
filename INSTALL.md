@@ -1,7 +1,7 @@
-# Install Primitive Chess
+# Install Chess
 
-When available in Primitive Store, open the listing and choose Get. Open Primitive Chess from the launcher grid.
+When available in Primitive Store, open the listing and choose Get. Open Chess from the launcher grid.
 
 For a local USB test, extract the package for your Kindle, copy the `chess` and `documents` folders to user storage,
-eject, and open Primitive Chess from Primitive Launcher. The app uses the launcher's fonts. The Done button returns you
+eject, and open Chess from Primitive Launcher. The app uses the launcher's fonts. The Done button returns you
 to the launcher.
