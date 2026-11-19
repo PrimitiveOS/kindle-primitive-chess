@@ -34,9 +34,8 @@ evaluates material and control of the center.
 
 ## Quick start
 
-For a local USB test, extract the ARMHF test package and copy the `chess` and `documents` folders to the Kindle's
-user storage. Eject the Kindle and open Chess from the Primitive Launcher grid. The app uses fonts
-installed with Primitive Launcher. [Install guide](INSTALL.md)
+After setting up PrimitiveOS, open **Store** from Primitive Launcher. Choose **Chess** under **Apps**,
+tap **Get**, and open it from the Launcher grid. The [install guide](INSTALL.md) also covers local USB testing.
 
 ## Status
 
