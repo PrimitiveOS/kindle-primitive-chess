@@ -264,7 +264,9 @@ impl App for View {
         }
         if EXPORT.contains(x, y) {
             self.notice = match self.export.as_deref() {
-                Some(directory) => match export_pgn(directory, self.game.pgn().as_bytes()) {
+                Some(directory) => match primitive_app::with_storage(|| {
+                    export_pgn(directory, self.game.pgn().as_bytes())
+                }) {
                     Ok(name) => format!("Saved {name} to Documents."),
                     Err(error) => format!("Could not export the game. {error}"),
                 },
