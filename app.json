@@ -7,7 +7,7 @@
   "developer": { "name": "Primitive AI" },
   "categories": ["games"],
   "description": "Play standard chess at three levels, save a game and export PGN.",
-  "repo": "https://github.com/DoanNguyenTrong/kindle-primitive-chess",
+  "repo": "https://github.com/PrimitiveOS/kindle-primitive-chess",
   "licence": "PolyForm-Noncommercial-1.0.0",
   "source": "hosted",
   "icon": "icon.png",
