@@ -100,14 +100,14 @@ checksum = "4e7648175b45a9a48536d676f68d918270699102aa8dab5496df06904c914600"
 
 [[package]]
 name = "chess-core"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "cozy-chess",
 ]
 
 [[package]]
 name = "chess-desktop"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chess-core",
  "chess-render",
@@ -117,7 +117,7 @@ dependencies = [
 
 [[package]]
 name = "chess-kindle"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chess-core",
  "chess-render",
@@ -126,7 +126,7 @@ dependencies = [
 
 [[package]]
 name = "chess-render"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chess-core",
  "primitive-app",
