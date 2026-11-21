@@ -178,7 +178,7 @@ impl View {
 
 impl App for View {
     fn draw(&self, canvas: &mut Canvas) {
-        header(canvas, "Chess", "Done");
+        header(canvas, "Chess", "Exit");
         canvas.text(
             Rect::new(56, 163, 710, 100),
             self.status(),
