@@ -2,18 +2,22 @@
 
 # Chess
 
-**Play standard chess against your Kindle.**
+**Play chess against your Kindle**
 
-[**Install guide**](INSTALL.md) ·
-[**Device notes**](docs/device-notes.md) ·
-[**Changelog**](CHANGELOG.md)
+[![Release](https://img.shields.io/github/v/release/PrimitiveOS/kindle-primitive-chess?label=release)](https://github.com/PrimitiveOS/kindle-primitive-chess/releases) [![Licence: PolyForm-Noncommercial-1.0.0](https://img.shields.io/badge/licence-PolyForm--Noncommercial--1.0.0-blue)](LICENSE) [![Store downloads](https://img.shields.io/badge/Store%20downloads-34-brightgreen)](https://primitiveos.github.io/kindle-primitive-catalog/v1/index.json)
+
+[**Download**](https://github.com/PrimitiveOS/kindle-primitive-chess/releases/latest) · [**Install guide**](INSTALL.md) · [**Changelog**](CHANGELOG.md)
 
 </div>
 
 ---
 
-Tap a piece to see its legal moves, then tap a destination. The opponent plays locally using a bounded search that
-evaluates material and control of the center.
+Play standard chess at three levels, save a game and export PGN.
+
+## Quick start
+
+After setting up PrimitiveOS, open **Store** from Primitive Launcher. Choose **Chess** under **Apps**,
+tap **Get**, and open it from the Launcher grid. The [install guide](INSTALL.md) also covers the standalone USB package.
 
 ## Screenshots
 
@@ -32,17 +36,6 @@ evaluates material and control of the center.
 - **Undo and resume.** Undo the previous turn or reopen a saved game.
 - **PGN export.** Save the game to the Kindle's `documents/` folder.
 
-## Quick start
-
-After setting up PrimitiveOS, open **Store** from Primitive Launcher. Choose **Chess** under **Apps**,
-tap **Get**, and open it from the Launcher grid. The [install guide](INSTALL.md) also covers local USB testing.
-
-## Status
-
-Desktop tests and previews passed on macOS, and the ARMHF package passed the local Store fixture.
-On an ARMHF Kindle Oasis 3 running firmware 5.18.2, Chess showed the new-game confirmation, preserved the
-original board after Cancel, and returned to Launcher. [Device notes](docs/device-notes.md)
-
 ## Develop locally
 
 Keep the Primitive Tools and Launcher repositories beside this checkout. The desktop command writes PNG
@@ -52,6 +45,23 @@ previews and a sample PGN to `build/previews`.
 cargo test --offline --locked --workspace
 cargo run --offline --locked -p chess-desktop
 ```
+
+## Status
+
+| Device | Status |
+|---|---|
+| Kindle Oasis 3 (1264 × 1680, firmware 5.18.2) | Tested on hardware |
+
+**Current version: 0.1.1.** Changes are in [CHANGELOG.md](CHANGELOG.md).
+
+## Downloads
+
+**34 downloads** from Store, as of 2026-11-21. Store shows the same count on the app page.
+The count is GitHub downloads of this app's release packages, from the [Store catalog](https://primitiveos.github.io/kindle-primitive-catalog/v1/index.json).
+
+## Documentation
+
+[Install guide](INSTALL.md) · [Changelog](CHANGELOG.md) · [Device notes](docs/device-notes.md)
 
 ## Licence
 
